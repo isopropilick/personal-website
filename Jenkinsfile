@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('home'){
-                    sh '/home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --baseURL $HUGO_DOMAIN --debug'
+                    sh '/home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --baseURL $HUGO_DOMAIN --noTimes'
                 }
             }
         }
