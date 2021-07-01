@@ -1,0 +1,3 @@
+name = "own"
+tags = ["blog", "clean", "customizable", "dark", "highlighting", "minimal", "personal", "responsive", "simple"]
+features = ["blog", "syntax highlighting"]
