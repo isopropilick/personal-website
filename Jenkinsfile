@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    triggers { pollSCM('* * * * *') }
     environment {
         HUGO_PUBLIC_PATH     = credentials('hugo-path')
         INTRA_IP = credentials('hugo-ip')
@@ -7,9 +8,16 @@ pipeline {
 
     }
     stages {
+        stage('clean') {
+            steps {
+                sh 'rm -rf $HUGO_PUBLIC_PATH{*,.*}'
+            }
+        }
         stage('Build') {
             steps {
-                sh("hugo -d $HUGO_PUBLIC_PATH --bind $INTRA_IP --baseURL $HUGO_DOMAIN -t own")
+                dir('home'){
+                    sh '/home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --baseURL $HUGO_DOMAIN --noTimes'
+                }
             }
         }
     }
