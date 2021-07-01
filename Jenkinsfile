@@ -9,13 +9,13 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                sh("rm -rfv $HUGO_PUBLIC_PATH/*")
+                sh 'rm -rfv $HUGO_PUBLIC_PATH/*'
             }
         }
         stage('Build') {
             steps {
-                sh("which hugo")
-                sh("hugo -d $HUGO_PUBLIC_PATH --bind $INTRA_IP --baseURL $HUGO_DOMAIN -t own")
+                sh 'which hugo'
+                sh './home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --bind $INTRA_IP --baseURL $HUGO_DOMAIN -t own'
             }
         }
     }
