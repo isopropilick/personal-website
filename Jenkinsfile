@@ -1,21 +1,15 @@
 pipeline {
     agent any
+    environment {
+        HUGO_PUBLIC_PATH     = credentials('hugo-path')
+        INTRA_IP = credentials('hugo-ip')
+        HUGO_DOMAIN = credentials('hugo-domain')
 
+    }
     stages {
         stage('Build') {
             steps {
-                sh 'cp /var/www/html/index.html /var/www/html/index.html1'
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh("hugo -d $HUGO_PUBLIC_PATH --bind $INTRA_IP --baseURL $HUGO_DOMAIN -t own")
             }
         }
     }
