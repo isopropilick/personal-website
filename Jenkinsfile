@@ -14,6 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'ls'
                 sh '/home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --baseURL $HUGO_DOMAIN'
             }
         }
