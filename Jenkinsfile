@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    triggers { pollSCM('* * * * *') }
+    //triggers { pollSCM('* * * * *') }
     environment {
         HUGO_PUBLIC_PATH     = credentials('hugo-path')
         INTRA_IP = credentials('hugo-ip')
