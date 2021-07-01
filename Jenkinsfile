@@ -14,7 +14,6 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'which hugo'
                 sh './home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --bind $INTRA_IP --baseURL $HUGO_DOMAIN -t own'
             }
         }
