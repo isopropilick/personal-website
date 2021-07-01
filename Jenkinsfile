@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh '/home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --bind $INTRA_IP --baseURL $HUGO_DOMAIN -t own'
+                sh '/home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --baseURL $HUGO_DOMAIN -t own'
             }
         }
     }
