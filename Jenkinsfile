@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                sh("rm -R $HUGO_PUBLIC_PATH")
+                sh("rm -rfv $HUGO_PUBLIC_PATH/*")
             }
         }
         stage('Build') {
