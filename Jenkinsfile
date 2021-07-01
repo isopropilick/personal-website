@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                cp /var/www/html/index.html /var/www/html/index.html1
+                sh 'cp /var/www/html/index.html /var/www/html/index.html1'
                 echo 'Building..'
             }
         }
