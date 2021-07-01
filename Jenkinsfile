@@ -10,14 +10,12 @@ pipeline {
         stage('clean') {
             steps {
                 sh 'rm -rf $HUGO_PUBLIC_PATH{*,.*}'
-                sh 'echo $HUGO_PUBLIC_PATH'
             }
         }
         stage('Build') {
             steps {
                 dir('home'){
-                    sh 'ls'
-                    sh '/home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --baseURL $HUGO_DOMAIN'
+                    sh '/home/linuxbrew/.linuxbrew/bin/hugo -d $HUGO_PUBLIC_PATH --baseURL $HUGO_DOMAIN --debug'
                 }
             }
         }
